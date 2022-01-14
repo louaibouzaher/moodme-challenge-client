@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Slider from "@mui/material/Slider";
 
 export const AverageSlider = ({ onChange }) => {
-  const [value, setValue] = useState([20, 37]);
+  const [value, setValue] = useState([0, 30]);
 
   useEffect(() => {
     onChange(value);

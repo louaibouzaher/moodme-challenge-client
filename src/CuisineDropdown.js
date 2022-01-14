@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import axios from "axios";
+import { BASE_URL } from "./config";
 
 export const CuisineDropdown = ({ className, controlClassName, onChange }) => {
   // Get cuisines from db
-  const options = ["one", "two", "three"];
+  const options = [];
+  useEffect(async () => {
+    await axios.get(`${BASE_URL}/cuisines`).then((res) => {
+      options.push(...res.data);
+    });
+  });
+
   const defaultOption = options[0];
   return (
     <Dropdown
