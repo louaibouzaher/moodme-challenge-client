@@ -22,7 +22,6 @@ function App() {
   useEffect(async () => {
     await axios.get(`${BASE_URL}/search`, { params: query }).then((res) => {
       setData(res.data.data);
-      console.log(res.data.data);
     });
   }, [query]);
 
@@ -73,7 +72,6 @@ function App() {
         <AverageSlider
           onChange={(v) =>
             setQuery((oldQuery) => {
-              console.log(v);
               return {
                 ...oldQuery,
                 minAverageGrade: v[0],
